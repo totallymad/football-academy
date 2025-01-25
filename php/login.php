@@ -7,7 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = trim($_POST['password']);
 
     if (empty($username) || empty($password)) {
-        die("Пожалуйста, заполните все поля.");
+        header('Location: ../error.php?error=' . urlencode('Пожалуйста, заполните все поля.'));
+        exit;
     }
 
     // Проверка пользователя в базе данных
@@ -25,7 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: ../account.php');
         exit;
     } else {
-        echo "Неверный логин или пароль.";
+        header('Location: ../error.php?error=' . urlencode('Неверный логин или пароль.'));
+        exit;
     }
 }
 ?>

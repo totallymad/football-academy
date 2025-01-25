@@ -7,14 +7,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = trim($_POST['password']);
 
     if (empty($username) || empty($email) || empty($password)) {
-        die("Пожалуйста, заполните все поля.");
+        header('Location: ../error.php?error=' . urlencode('Пожалуйста, заполните все поля.'));
+        exit;
     }
 
     // Проверка на существование пользователя
     $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE username = :username OR email = :email");
     $stmt->execute(['username' => $username, 'email' => $email]);
     if ($stmt->fetchColumn() > 0) {
-        die("Пользователь с таким логином или email уже существует.");
+        header('Location: ../error.php?error=' . urlencode('Пользователь с таким логином или email уже существует.'));
+        exit;
     }
 
     // Хеширование пароля
@@ -28,6 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'password' => $hashedPassword,
     ]);
 
-    echo "Регистрация успешна!";
+    // После успешной регистрации перенаправляем на главную страницу
+    header('Location: ../index.php');
+    exit;
 }
 ?>
