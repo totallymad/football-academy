@@ -120,6 +120,7 @@ body {
   color: #fe0000;
 }
 
+
 #modal-button {
   background: #fe0000;
   width: 270px;
@@ -205,6 +206,12 @@ body {
   height: 190px;
   transform: rotate(45deg);
   border: 25px solid #fa6b6b;
+}
+
+@media (max-width: 1710px) {
+  .about__rect {
+    display: none;
+  }
 }
 
 .about__rect.small {
@@ -333,6 +340,12 @@ body {
   border: 15px solid #fa6b6b;
 }
 
+@media (max-width: 1400px) {
+  .coaches__rect {
+    display: none;
+  }
+}
+
 .coaches h2 {
   font-size: 36px;
   font-weight: 600;
@@ -385,6 +398,12 @@ body {
   height: 260px;
   transform: rotate(43deg);
   border: 20px solid #fa6b6b;
+}
+
+@media (max-width: 1710px) {
+  .founder__rect {
+    display: none;
+  }
 }
 
 .founder__rect-left {
@@ -698,6 +717,12 @@ body {
   height: 100%;
   position: absolute;
   z-index: 5;
+}
+
+@media (max-width: 1400px) {
+  .contacts__container {
+    width: 100%;
+  }
 }
 
 .contacts__wrapper {

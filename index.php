@@ -44,7 +44,6 @@ session_start();
                 <?php endif; ?>
             </div>
         </div>
-
         <?php if (!isset($_SESSION['user'])): ?>
             <div id="modal" class="modal">
                 <div class="modal__content">
@@ -336,16 +335,16 @@ session_start();
             <div class="red-shape top"></div>
             <div class="red-shape bottom"></div>
             <div class="form__wrapper">
-                <img src="img/football-boy.png" alt="мальичк футболист" class="form__img" />
-                <form action="#" method="post">
+                <img src="img/football-boy.png" alt="мальчик футболист" class="form__img" />
+                <form action="https://getform.io/f/aollyorb" method="POST"> <!-- Укажите ваш endpoint -->
                     <h2>Запишись сейчас на первую бесплатную тренировку</h2>
 
                     <div class="form__group">
                         <label>
-                            <input type="text" name="first_name" placeholder="Имя" required />
+                            <input type="text" name="Имя" placeholder="Имя" required />
                         </label>
                         <label>
-                            <input type="text" name="last_name" placeholder="Фамилия" required />
+                            <input type="text" name="Фамилия" placeholder="Фамилия" required />
                         </label>
                     </div>
                     <div class="form__group">
@@ -353,7 +352,7 @@ session_start();
                             <input type="email" name="email" placeholder="Email" required />
                         </label>
                         <label>
-                            <input type="tel" name="phone" placeholder="Телефон" required />
+                            <input type="tel" name="Номер телефона" placeholder="Телефон" required />
                         </label>
                     </div>
                     <button type="submit">Записаться</button>

@@ -1,5 +1,10 @@
 <?php
 // db.php
+// $host = 'localhost';  // Хост сервера MySQL
+// $db = 'ilya02a0_footbal';  // Название базы данных
+// $user = 'ilya02a0_footbal';  // Пользователь базы данных
+// $password = 'Flvby123!';  // Пароль пользователя
+
 $host = 'localhost';  // Хост сервера MySQL
 $db = 'football_academy';  // Название базы данных
 $user = 'root';  // Пользователь базы данных
