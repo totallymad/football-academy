@@ -18,64 +18,70 @@ session_start();
 <body>
 
 
-    <header>
-        <div class="container">
-            <div class="header">
-                <div class="header__logo">
-                    <img src="img/logo.png" alt="logo" />
+<header>
+    <div class="container">
+        <div class="header">
+            <div class="header__logo">
+                <img src="img/logo.png" alt="logo" />
+            </div>
+            <nav id="nav" class="header__nav">
+                <ul>
+                    <li><a href="#about">О школе</a></li>
+                    <li><a href="#coaches">Тренеры</a></li>
+                    <li><a href="#schedule">Расписание</a></li>
+                    <li><a href="#pricelist">Цены</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+            <button id="hamburger" class="header__hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <?php if (isset($_SESSION['user'])): ?>
+                <div class="header__user">
+                    <a class="header__user_link" href="account.php">Привет,
+                        <?= htmlspecialchars($_SESSION['user']['username']) ?>!</a>
+                    <a href="php/logout.php" class="header__logout">Выйти</a>
                 </div>
-                <nav>
-                    <ul>
-                        <li><a href="#about">О школе</a></li>
-                        <li><a href="#coaches">Тренеры</a></li>
-                        <li><a href="#schedule">Расписание</a></li>
-                        <li><a href="#pricelist">Цены</a></li>
-                        <li><a href="#contacts">Контакты</a></li>
-                    </ul>
-                </nav>
-                <?php if (isset($_SESSION['user'])): ?>
-                    <div class="header__user">
-                        <a class="header__user_link" href="account.php">Привет,
-                            <?= htmlspecialchars($_SESSION['user']['username']) ?>!</a>
-                        <a href="php/logout.php" class="header__logout">Выйти</a>
-                    </div>
-                <?php else: ?>
-                    <button id="modal-button">Вход/Регистрация</button>
-                <?php endif; ?>
+            <?php else: ?>
+                <button id="modal-button">Вход/Регистрация</button>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php if (!isset($_SESSION['user'])): ?>
+        <div id="modal" class="modal">
+            <div class="modal__content">
+                <span id="close-modal" class="modal__close">&times;</span>
+                <div class="modal__tabs">
+                    <button id="login-tab" class="modal__tab active">Вход</button>
+                    <button id="register-tab" class="modal__tab">Регистрация</button>
+                </div>
+                <div id="login-form" class="modal__form active">
+                    <h2>Вход</h2>
+                    <form action="php/login.php" method="POST">
+                        <input class="modal__input" type="text" name="username" placeholder="Логин" required />
+                        <input class="modal__input" type="password" name="password" placeholder="Пароль" required />
+                        <button type="submit" class="modal__button">Войти</button>
+                    </form>
+                </div>
+                <div id="register-form" class="modal__form">
+                    <h2>Регистрация</h2>
+                    <form action="php/register.php" method="POST">
+                        <input class="modal__input" type="text" name="username" placeholder="Логин" required />
+                        <input class="modal__input" type="email" name="email" placeholder="Email" required />
+                        <input class="modal__input" type="password" name="password" placeholder="Пароль" required />
+                        <button type="submit" class="modal__button">Зарегистрироваться</button>
+                    </form>
+                </div>
             </div>
         </div>
-        <?php if (!isset($_SESSION['user'])): ?>
-            <div id="modal" class="modal">
-                <div class="modal__content">
-                    <span id="close-modal" class="modal__close">&times;</span>
-                    <div class="modal__tabs">
-                        <button id="login-tab" class="modal__tab active">Вход</button>
-                        <button id="register-tab" class="modal__tab">Регистрация</button>
-                    </div>
-                    <div id="login-form" class="modal__form active">
-                        <h2>Вход</h2>
-                        <form action="php/login.php" method="POST">
-                            <input class="modal__input" type="text" name="username" placeholder="Логин" required />
-                            <input class="modal__input" type="password" name="password" placeholder="Пароль" required />
-                            <button type="submit" class="modal__button">Войти</button>
-                        </form>
-                    </div>
-                    <div id="register-form" class="modal__form">
-                        <h2>Регистрация</h2>
-                        <form action="php/register.php" method="POST">
-                            <input class="modal__input" type="text" name="username" placeholder="Логин" required />
-                            <input class="modal__input" type="email" name="email" placeholder="Email" required />
-                            <input class="modal__input" type="password" name="password" placeholder="Пароль" required />
-                            <button type="submit" class="modal__button">Зарегистрироваться</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        <?php endif; ?>
-    </header>
+    <?php endif; ?>
+</header>
+
 
     <main>
-        <section class="hero">
+        <section  class="hero">
             <div class="hero__content">
                 <h1>
                     Детская академия <br />

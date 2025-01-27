@@ -12,6 +12,93 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+/* Основные стили */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header ul {
+  justify-content: center;
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.header ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.header ul li a:hover {
+  color: #fe0000;
+}
+
+#modal-button {
+  background: #fe0000;
+  width: 270px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+}
+
+#modal-button:hover {
+  background: #ff4d4d;
+}
+
+#modal-button:active {
+  transform: scale(0.98);
+}
+
+.header__user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.header__user_link {
+  text-decoration: none;
+  color: black;
+}
+
+.header__user_link:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.header__logout {
+  color: #ff0000;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: 1px solid #ff0000;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.header__logout:hover {
+  background-color: #ff0000;
+  color: #fff;
+}
+
 /* Модальное окно */
 .modal {
   display: none;
@@ -91,57 +178,126 @@ body {
   background: #ff5151;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 50px;
+/* Адаптация для планшетов (ширина экрана до 1024px) */
+@media (max-width: 1200px) {
+  .header {
+    padding: 20px 30px;
+  }
+
+  .header ul {
+    gap: 20px;
+  }
+
+  .header ul li a {
+    font-size: 20px;
+  }
+
+  #modal-button {
+    width: 240px;
+    font-size: 20px;
+  }
+
+  .header__user {
+    gap: 8px;
+    font-size: 14px;
+  }
 }
 
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
+/* Адаптация для мобильных устройств (ширина экрана до 520px) */
+@media (max-width: 720px) {
+  .header {
+    padding: 15px 20px;
+  }
+
+  .header ul {
+    gap: 15px;
+  }
+
+  .header ul li a {
+    font-size: 18px;
+  }
+
+  #modal-button {
+    width: 200px;
+    font-size: 18px;
+  }
+
+  .header__user {
+    gap: 5px;
+    font-size: 12px;
+  }
 }
 
-.header ul {
-  display: flex;
-  list-style: none;
-  gap: 30px;
+@media screen and (max-width: 1000px) {
+  .header__nav {
+    display: none;
+  }
+
+  .header__hamburger {
+    display: block;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+    position: relative;
+    width: 30px;
+    height: 30px;
+  }
+
+  .header__hamburger span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #333;
+    margin: 5px 0;
+  }
+
+  .header__nav.active {
+    display: block;
+  }
 }
 
-.header ul li a {
-  text-decoration: none;
-  color: #333;
-  font-size: 24px;
-  font-weight: 600;
+@media screen and (max-width: 1000px) {
+  .header__nav {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header__nav ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  .header__nav ul li {
+    margin: 10px 0;
+  }
 }
 
-.header ul li a:hover {
-  color: #fe0000;
+@media (max-width: 520px) {
+  .header ul {
+    gap: 10px;
+  }
+
+  .header ul li a {
+    font-size: 14px;
+  }
+
+  .header__logo {
+    display: none;
+  }
+
+  .header__nav {
+    top: 62px;
+  }
 }
 
-
-#modal-button {
-  background: #fe0000;
-  width: 270px;
-  height: 40px;
-  border-radius: 10px;
-  border: none;
-  color: #fff;
-  font-size: 24px;
-  font-weight: 500;
-  cursor: pointer;
-  font-family: "Montserrat", sans-serif;
-}
-
-#modal-button:hover {
-  background: #ff4d4d;
-}
-
-#modal-button:active {
-  transform: scale(0.98);
-}
-
+/* Основной стиль для блока hero */
 .hero {
   background: url("../img/main_bg.png") no-repeat center center/cover;
 }
@@ -181,7 +337,6 @@ body {
   font-size: 24px;
   font-weight: 500;
   cursor: pointer;
-  font-weight: 500;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -191,6 +346,50 @@ body {
 
 .hero__content button:active {
   transform: scale(0.98);
+}
+
+/* Адаптация для планшетов (ширина экрана до 1024px) */
+@media (max-width: 1024px) {
+  .hero__content {
+    padding: 150px 100px; /* Уменьшаем отступы для планшетов */
+  }
+
+  .hero__content h1 {
+    font-size: 48px; /* Уменьшаем размер заголовка */
+    letter-spacing: 2px; /* Уменьшаем расстояние между буквами */
+  }
+
+  .hero__content p {
+    font-size: 20px; /* Уменьшаем размер текста */
+  }
+
+  .hero__content button {
+    width: 220px; /* Уменьшаем ширину кнопки */
+    height: 45px; /* Уменьшаем высоту кнопки */
+    font-size: 20px; /* Уменьшаем размер шрифта на кнопке */
+  }
+}
+
+/* Адаптация для мобильных устройств (ширина экрана до 520px) */
+@media (max-width: 520px) {
+  .hero__content {
+    padding: 120px 20px; /* Уменьшаем отступы для мобильных устройств */
+  }
+
+  .hero__content h1 {
+    font-size: 32px; /* Уменьшаем размер заголовка */
+    letter-spacing: 1px; /* Уменьшаем расстояние между буквами */
+  }
+
+  .hero__content p {
+    font-size: 18px; /* Уменьшаем размер текста */
+  }
+
+  .hero__content button {
+    width: 200px; /* Уменьшаем ширину кнопки */
+    height: 40px; /* Уменьшаем высоту кнопки */
+    font-size: 18px; /* Уменьшаем размер шрифта на кнопке */
+  }
 }
 
 .about {
@@ -242,7 +441,8 @@ body {
   justify-content: center;
   gap: 100px;
   min-height: 600px;
-  padding-top: 160px;
+  padding: 160px 10px 0 10px;
+  flex-wrap: wrap; /* Чтобы элементы не вылазили за пределы экрана на маленьких устройствах */
 }
 
 .about__card {
@@ -260,6 +460,34 @@ body {
   height: 270px;
   width: 340px;
   padding: 0 10px;
+}
+
+/* Для планшетов (ширина экрана до 1024px) */
+@media (max-width: 1024px) {
+  .about__features {
+    gap: 50px; /* Уменьшим расстояние между карточками */
+    padding: 100px 10px; /* Уменьшим верхний отступ */
+  }
+
+  .about__card_text {
+    height: 300px; /* Уменьшим высоту карточек */
+    width: 300px; /* Уменьшим ширину карточек */
+  }
+}
+
+/* Для мобильных устройств (ширина экрана до 768px) */
+@media (max-width: 768px) {
+  .about__features {
+    flex-direction: column; /* Элементы размещаются в столбик */
+    gap: 30px; /* Еще меньшее расстояние между карточками */
+    padding: 80px 10px; /* Уменьшим отступы */
+  }
+
+  .about__card_text {
+    height: auto; /* Автоматическая высота */
+    width: 100%; /* Растягиваем карточку на всю ширину контейнера */
+    padding: 20px; /* Увеличим внутренние отступы */
+  }
 }
 
 .about__card_text:hover {
@@ -297,6 +525,33 @@ body {
   margin: 0 auto;
 }
 
+/* Для планшетов (ширина экрана до 1024px) */
+@media (max-width: 1024px) {
+  .about__title {
+    font-size: 32px; /* Уменьшаем размер заголовка */
+    margin-bottom: 20px; /* Уменьшаем отступ */
+  }
+
+  .about__text {
+    font-size: 20px; /* Уменьшаем размер текста */
+    width: 600px; /* Сужаем ширину текста */
+  }
+}
+
+/* Для мобильных устройств (ширина экрана до 768px) */
+@media (max-width: 768px) {
+  .about__title {
+    font-size: 28px; /* Еще меньше заголовок */
+    margin-bottom: 15px; /* Еще меньше отступ */
+  }
+
+  .about__text {
+    font-size: 18px; /* Уменьшаем размер текста */
+    width: 100%; /* Растягиваем текст на всю ширину */
+    padding: 0 10px; /* Добавляем отступы для читаемости */
+  }
+}
+
 .about__info {
   position: relative;
   max-width: 1400px;
@@ -318,15 +573,59 @@ body {
   flex-direction: column;
   gap: 10px;
 }
+
 .about__info_text ul li {
   font-size: 24px;
   font-weight: 500;
   color: #fe0000;
 }
 
-.coaches {
-  margin-top: 50px;
-  position: relative;
+@media (max-width: 1200px) {
+  .about__info img {
+    width: 400px;
+    object-fit: cover;
+  }
+}
+
+/* Для планшетов (ширина экрана до 1024px) */
+@media (max-width: 1024px) {
+  .about__info {
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Уменьшаем расстояние между элементами */
+    padding: 40px 50px; /* Уменьшаем отступы */
+    flex-wrap: wrap; /* Для переноса блоков на маленьких экранах */
+  }
+
+  .about__info_text p {
+    font-size: 20px; /* Уменьшаем размер текста */
+  }
+
+  .about__info_text ul li {
+    font-size: 20px; /* Уменьшаем размер текста списка */
+  }
+}
+
+/* Для мобильных устройств (ширина экрана до 768px) */
+@media (max-width: 768px) {
+  .about__info {
+    flex-direction: column; /* Размещаем элементы в столбик */
+    gap: 30px; /* Уменьшаем расстояние между элементами */
+    padding: 30px 20px; /* Еще больше уменьшаем отступы */
+  }
+
+  .about__info_text p {
+    font-size: 18px; /* Еще меньше текст */
+    margin-bottom: 20px; /* Уменьшаем нижний отступ */
+  }
+
+  .about__info_text ul li {
+    font-size: 18px; /* Еще меньше текст в списке */
+  }
+
+  .about__info img {
+    width: 100%;
+  }
 }
 
 .coaches__rect {
@@ -346,6 +645,11 @@ body {
   }
 }
 
+.coaches {
+  margin-top: 50px;
+  position: relative;
+}
+
 .coaches h2 {
   font-size: 36px;
   font-weight: 600;
@@ -361,6 +665,7 @@ body {
   gap: 50px;
   padding: 50px 0;
   position: relative;
+  flex-wrap: wrap; /* Для переноса карточек на маленьких экранах */
 }
 
 .coaches__card {
@@ -383,6 +688,55 @@ body {
   font-size: 16px;
   font-weight: 500;
   text-align: center;
+}
+
+/* Для планшетов (ширина экрана до 1024px) */
+@media (max-width: 1024px) {
+  .coaches h2 {
+    font-size: 32px; /* Уменьшаем размер заголовка */
+  }
+
+  .coaches__cards {
+    gap: 30px; /* Уменьшаем расстояние между карточками */
+    padding: 40px 0; /* Уменьшаем отступы */
+  }
+
+  .coaches__card {
+    width: 450px; /* Сужаем ширину карточек */
+  }
+
+  .coaches__card h3 {
+    font-size: 22px; /* Уменьшаем размер текста заголовка */
+  }
+
+  .coaches__card p {
+    font-size: 14px; /* Уменьшаем размер текста описания */
+  }
+}
+
+/* Для мобильных устройств (ширина экрана до 768px) */
+@media (max-width: 768px) {
+  .coaches h2 {
+    font-size: 28px; /* Еще меньше заголовок */
+  }
+
+  .coaches__cards {
+    gap: 20px; /* Еще меньше расстояние между карточками */
+    padding: 30px 10px; /* Уменьшаем боковые отступы */
+  }
+
+  .coaches__card {
+    width: 100%; /* Карточки занимают всю ширину */
+    padding: 0 10px; /* Добавляем внутренние отступы для читаемости */
+  }
+
+  .coaches__card h3 {
+    font-size: 20px; /* Уменьшаем размер заголовка */
+  }
+
+  .coaches__card p {
+    font-size: 14px; /* Текст остается компактным */
+  }
 }
 
 .founder {
@@ -428,6 +782,12 @@ body {
   border: 30px solid #fa6b6b;
 }
 
+@media (max-width: 1250px) {
+  .founder__rect-small {
+    display: none;
+  }
+}
+
 .founder__rect-small-left {
   position: absolute;
   top: 550px;
@@ -470,6 +830,48 @@ body {
   font-size: 16px;
   font-weight: 500;
   text-align: center;
+}
+
+/* Для планшетов (ширина экрана до 1024px) */
+@media (max-width: 1024px) {
+  .founder h2 {
+    font-size: 32px; /* Уменьшаем размер заголовка */
+  }
+
+  .founder__card {
+    max-width: 500px; /* Уменьшаем ширину карточки */
+    padding: 40px 20px; /* Уменьшаем отступы */
+    gap: 15px; /* Уменьшаем расстояние между элементами */
+  }
+
+  .founder__card h3 {
+    font-size: 22px; /* Уменьшаем размер текста заголовка */
+  }
+
+  .founder__card p {
+    font-size: 14px; /* Уменьшаем размер текста описания */
+  }
+}
+
+/* Для мобильных устройств (ширина экрана до 768px) */
+@media (max-width: 768px) {
+  .founder h2 {
+    font-size: 28px; /* Еще меньше заголовок */
+  }
+
+  .founder__card {
+    max-width: 100%; /* Карточка занимает всю ширину */
+    padding: 30px 15px; /* Уменьшаем внутренние отступы */
+    gap: 10px; /* Уменьшаем расстояние между элементами */
+  }
+
+  .founder__card h3 {
+    font-size: 20px; /* Уменьшаем размер заголовка */
+  }
+
+  .founder__card p {
+    font-size: 14px; /* Текст остается компактным */
+  }
 }
 
 .schedule {
@@ -537,6 +939,72 @@ body {
   grid-area: 3 / 3 / 4 / 4;
 }
 
+/* Для планшетов (ширина экрана до 1024px) */
+@media (max-width: 1024px) {
+  .schedule h2 {
+    font-size: 32px; /* Уменьшаем размер заголовка */
+    margin-bottom: 20px;
+  }
+
+  .schedule__grid {
+    grid-template-columns: repeat(2, 1fr); /* Уменьшаем количество колонок */
+    grid-template-rows: repeat(4, 1fr); /* Добавляем строки */
+    grid-gap: 10px; /* Пространство между элементами */
+    padding: 0 30px; /* Уменьшаем отступы */
+    min-height: auto; /* Убираем минимальную высоту */
+  }
+
+  .schedule img {
+    width: 200px;
+  }
+
+  .schedule__grid > div {
+    font-size: 14px; /* Уменьшаем размер текста */
+  }
+}
+
+/* Для мобильных устройств (ширина экрана до 768px) */
+@media (max-width: 768px) {
+  .schedule h2 {
+    font-size: 28px; /* Еще меньше заголовок */
+    margin-bottom: 15px;
+  }
+
+  .schedule__grid {
+    grid-template-columns: 1fr; /* Все элементы в одну колонку */
+    grid-template-rows: auto; /* Автоматическая высота строк */
+    grid-gap: 20px; /* Увеличиваем пространство между карточками */
+    padding: 0 20px; /* Уменьшаем боковые отступы */
+  }
+
+  .schedule__grid > div {
+    font-size: 14px; /* Компактный текст */
+    padding: 10px; /* Добавляем отступы для читаемости */
+  }
+
+  .schedule__grid > div {
+    font-size: 14px; /* Компактный текст */
+    padding: 10px; /* Дополнительные отступы для читаемости */
+    grid-area: auto;
+  }
+}
+
+/* Для мобильных устройств (ширина экрана до 520px) */
+@media (max-width: 520px) {
+  .schedule__grid {
+    grid-template-columns: 1fr; /* Все элементы выстраиваются в столбик */
+    grid-template-rows: auto;
+    grid-gap: 20px; /* Пространство между элементами */
+    padding: 0 20px;
+  }
+
+  .schedule__grid > div {
+    font-size: 14px; /* Компактный текст */
+    padding: 10px; /* Дополнительные отступы для читаемости */
+    grid-area: auto;
+  }
+}
+
 .subscription {
   margin-top: 50px;
 }
@@ -555,11 +1023,12 @@ body {
   display: flex;
   justify-content: center;
   gap: 50px;
-  padding: 50px 0 0 0;
+  padding: 50px 10px 10px 0;
 }
 
 .subscription__wrapper table {
   margin-bottom: 20px;
+  width: 100%; /* Таблица растягивается на всю ширину контейнера */
 }
 
 .subscription__wrapper thead {
@@ -613,6 +1082,149 @@ body {
   margin-bottom: 10px;
 }
 
+@media (max-width: 1200px) {
+  .subscription__wrapper {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Для планшетов (ширина экрана до 1024px) */
+@media (max-width: 1024px) {
+  .subscription h2 {
+    font-size: 32px; /* Уменьшаем размер заголовка */
+    margin-bottom: 20px;
+  }
+
+  .subscription__wrapper {
+    flex-direction: column;
+    padding: 30px 0;
+  }
+
+  .subscription__wrapper table {
+    width: 90%; /* Уменьшаем ширину таблицы */
+    margin: 0 auto; /* Центрируем таблицу */
+  }
+
+  .subscription__img {
+    width: 581px;
+  }
+
+  .subscription__img p {
+    width: 100%; /* Разрешаем картинке занимать всю ширину контейнера */
+    font-size: 12px; /* Уменьшаем шрифт */
+  }
+}
+
+/* Для мобильных устройств (ширина экрана до 520px) */
+@media (max-width: 720px) {
+  .subscription h2 {
+    font-size: 28px; /* Еще меньше размер заголовка */
+    margin-bottom: 15px;
+  }
+
+  .subscription__wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* Добавляем пространство между элементами */
+    padding: 20px 0;
+  }
+
+  .subscription__wrapper table {
+    width: 100%; /* Таблица растягивается на всю ширину */
+    margin: 0; /* Убираем дополнительные отступы */
+  }
+
+  .subscription__wrapper th {
+    font-size: 14px; /* Уменьшаем размер текста в заголовках */
+  }
+
+  .subscription__img {
+    padding: 0 10px;
+    width: 100%;
+  }
+
+  .subscription__img img {
+    width: 100%;
+  }
+
+  .subscription__img p {
+    width: 100%;
+    font-size: 12px;
+    margin-bottom: 5px; /* Уменьшаем отступы */
+  }
+}
+
+@media (max-width: 550px) {
+  .subscription__img {
+    padding: 0 10px;
+    width: 250px;
+  }
+
+  .subscription__img img {
+    width: 100%;
+  }
+}
+
+/* Для мобильных устройств (ширина экрана до 520px) */
+@media (max-width: 520px) {
+  .subscription__table {
+    width: 100%; /* Таблица растягивается на всю ширину */
+    border-collapse: collapse; /* Убираем промежутки между ячейками */
+  }
+
+  .subscription__table thead {
+    display: none; /* Скрываем заголовки таблицы */
+  }
+
+  .subscription__table tbody tr {
+    display: block;
+    margin-bottom: 20px;
+    border: 1px solid #ddd; /* Добавляем границу между строками */
+  }
+
+  .subscription__table tbody td {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px; /* Уменьшаем размер шрифта для мобильных устройств */
+  }
+
+  .subscription__table tbody td::before {
+    content: attr(data-label); /* Добавляем метки перед данными */
+    font-weight: 600;
+    margin-right: 10px;
+    text-transform: uppercase;
+    color: #fe0000;
+  }
+
+  /* Специфические стили для ячеек */
+  .table__name,
+  .table__quantity,
+  .table__price {
+    width: 100%; /* Растягиваем ячейки на всю ширину */
+  }
+
+  .table__name {
+    font-size: 14px;
+  }
+
+  .table__row {
+    height: auto;
+  }
+
+  .table__price {
+    text-align: right;
+  }
+
+  .table__quantity {
+    text-align: left;
+  }
+}
+
+/* Основные стили для формы */
 .form {
   min-height: 810px;
   position: relative;
@@ -677,6 +1289,102 @@ body {
   z-index: 6;
 }
 
+.form h2 {
+  font-size: 32px;
+  color: white;
+  text-align: center;
+  width: 600px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+/* Адаптация для планшетов и мобильных устройств */
+
+/* Для планшетов (ширина экрана до 1024px) */
+@media (max-width: 1200px) {
+  .form__wrapper {
+    width: 90%; /* Сужаем ширину контейнера */
+    height: 600px; /* Снимаем ограничение по высоте */
+    padding: 0 50px;
+  }
+
+  .form__wrapper form {
+    padding-top: 150px;
+  }
+
+  .form__group {
+    flex-direction: column; /* Сгруппируем поля формы вертикально */
+    gap: 10px; /* Добавим пространство между полями */
+  }
+
+  .form__group input {
+    width: 100%; /* Растягиваем поля на всю ширину контейнера */
+    height: 50px;
+    font-size: 14px; /* Уменьшаем шрифт */
+    padding: 10px; /* Уменьшаем отступы */
+  }
+
+  .form__wrapper button {
+    width: 100%; /* Кнопка будет растягиваться на всю ширину */
+    height: 50px;
+    font-size: 20px; /* Уменьшаем размер шрифта на кнопке */
+  }
+
+  .form h2 {
+    font-size: 28px; /* Уменьшаем размер заголовка */
+    width: 100%; /* Уменьшаем ширину заголовка */
+    margin-bottom: 20px; /* Уменьшаем отступ */
+  }
+}
+
+/* Для мобильных устройств (ширина экрана до 520px) */
+@media (max-width: 560px) {
+  .form {
+    margin-top: 50px; /* Уменьшаем отступ сверху */
+    padding-top: 30px; /* Уменьшаем отступ сверху */
+  }
+
+  .form__wrapper {
+    margin-top: 20px;
+    width: 90%; /* Сужаем ширину контейнера */
+    height: 600px; /* Снимаем ограничение по высоте */
+  }
+
+  .form__group {
+    flex-direction: column; /* Сгруппируем поля формы вертикально */
+    gap: 20px; /* Добавляем пространство между полями */
+  }
+
+  .form__group input {
+    width: 100%; /* Растягиваем поля на всю ширину контейнера */
+    height: 45px; /* Уменьшаем высоту поля */
+    font-size: 12px; /* Уменьшаем шрифт */
+    padding: 10px; /* Уменьшаем отступы */
+  }
+
+  .form__wrapper button {
+    width: 100%; /* Кнопка будет растягиваться на всю ширину */
+    height: 45px; /* Уменьшаем высоту кнопки */
+    font-size: 18px; /* Уменьшаем размер шрифта на кнопке */
+  }
+
+  .form h2 {
+    font-size: 24px; /* Уменьшаем размер заголовка */
+    margin-bottom: 15px; /* Уменьшаем отступ */
+  }
+
+  .form__img {
+    display: none; /* Убираем изображение на маленьких экранах */
+  }
+}
+
+@media (max-width: 400px) {
+  .form__wrapper form {
+    padding-top: 100px;
+  }
+}
+
 .red-shape {
   position: absolute;
   width: 100%;
@@ -695,20 +1403,11 @@ body {
   clip-path: polygon(61% 21%, 100% 18%, 100% 73%, 69% 100%, 0 61%, 0 9%);
 }
 
-.form h2 {
-  font-size: 32px;
-  color: white;
-  text-align: center;
-  width: 600px;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 40px;
-}
-
 .contacts {
   position: relative;
 }
 
+/* Основные стили */
 .contacts__container {
   top: 0;
   left: 50%;
@@ -721,7 +1420,7 @@ body {
 
 @media (max-width: 1400px) {
   .contacts__container {
-    width: 100%;
+    width: 100%; /* Контейнер будет растягиваться на всю ширину экрана */
   }
 }
 
@@ -767,6 +1466,57 @@ body {
   font-size: 18px;
 }
 
+/* Адаптация для планшетов (ширина экрана до 1024px) */
+@media (max-width: 1024px) {
+  .contacts__container {
+    width: 100%; /* Контейнер растягивается на всю ширину */
+    left: 0; /* Выравнивание по левому краю */
+    transform: translateX(0); /* Убираем сдвиг */
+  }
+
+  .contacts__wrapper {
+    width: 90%; /* Сужаем ширину блока с контактами */
+    left: 5%; /* Выравниваем с отступом */
+    top: 20px; /* Уменьшаем верхний отступ */
+    padding: 15px; /* Уменьшаем внутренние отступы */
+  }
+
+  .contacts__address p,
+  .contacts__tel ul li,
+  .contacts__text {
+    font-size: 16px; /* Уменьшаем шрифт */
+  }
+}
+
+/* Адаптация для мобильных устройств (ширина экрана до 520px) */
+@media (max-width: 520px) {
+  .contacts__container {
+    width: 100%; /* Контейнер растягивается на всю ширину */
+    left: 0; /* Выравнивание по левому краю */
+    transform: translateX(0); /* Убираем сдвиг */
+  }
+
+  .contacts__wrapper {
+    width: 100%; /* Блок с контактами растягивается на всю ширину */
+    left: 0; /* Убираем отступ слева */
+    top: 20px; /* Уменьшаем верхний отступ */
+    padding: 10px; /* Уменьшаем внутренние отступы */
+  }
+
+  .contacts__address,
+  .contacts__tel {
+    flex-direction: column; /* Выстраиваем элементы в столбик */
+    gap: 8px; /* Уменьшаем расстояние между элементами */
+  }
+
+  .contacts__address p,
+  .contacts__tel ul li,
+  .contacts__text {
+    font-size: 14px; /* Уменьшаем шрифт для мобильных устройств */
+  }
+}
+
+/* Основной стиль для футера */
 footer {
   background: url("../img/footer_bg.png") no-repeat center / cover;
 }
@@ -838,37 +1588,64 @@ footer {
   font-size: 18px;
 }
 
-.header__user {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid gray;
-  padding: 5px;
-  border-radius: 5px;
-  font-weight: 500;
+@media (max-width: 1300px) {
+  .footer__img {
+    width: 390px;
+  }
 }
 
-.header__user_link {
-  text-decoration: none;
-  color: black;
+/* Адаптация для планшетов (ширина экрана до 1024px) */
+@media (max-width: 1024px) {
+  .footer__wrapper {
+    flex-direction: column;
+    gap: 40px; /* Увеличиваем отступы между блоками */
+    padding: 30px 20px; /* Добавляем внутренние отступы */
+  }
+
+  .footer__wrapper ul {
+    align-items: center; /* Выравниваем элементы по центру */
+  }
+
+  .footer__wrapper ul li a {
+    font-size: 14px; /* Уменьшаем размер шрифта */
+  }
+
+  .copyright {
+    font-size: 14px; /* Уменьшаем размер шрифта */
+  }
+
+  .social__address p,
+  .social__tel ul li,
+  .social__text {
+    font-size: 16px; /* Уменьшаем размер шрифта для мобильных экранов */
+  }
 }
 
-.header__user_link:visited {
-  color: black;
-  text-decoration: none;
+/* Адаптация для мобильных устройств (ширина экрана до 520px) */
+@media (max-width: 520px) {
+  .footer__wrapper {
+    flex-direction: column;
+    gap: 30px; /* Уменьшаем расстояние между элементами */
+    padding: 20px 10px; /* Уменьшаем отступы */
+  }
+
+  .footer__wrapper ul li a {
+    font-size: 12px; /* Уменьшаем шрифт ссылок */
+  }
+
+  .copyright {
+    font-size: 12px; /* Уменьшаем шрифт для авторского права */
+  }
+
+  .social__address p,
+  .social__tel ul li,
+  .social__text {
+    font-size: 14px; /* Уменьшаем шрифт для социальных ссылок */
+  }
 }
 
-.header__logout {
-  color: #ff0000;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 5px 10px;
-  border: 1px solid #ff0000;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.header__logout:hover {
-  background-color: #ff0000;
-  color: #fff;
+@media (max-width: 410px) {
+  .footer__img {
+    width: 100%;
+  }
 }
