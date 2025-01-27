@@ -12,76 +12,77 @@ session_start();
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="css/style.css" />
     <script defer src="js/script.js"></script>
+    <script defer src="js/slider.js"></script>
     <title>Academy</title>
 </head>
 
 <body>
 
 
-<header>
-    <div class="container">
-        <div class="header">
-            <div class="header__logo">
-                <img src="img/logo.png" alt="logo" />
-            </div>
-            <nav id="nav" class="header__nav">
-                <ul>
-                    <li><a href="#about">О школе</a></li>
-                    <li><a href="#coaches">Тренеры</a></li>
-                    <li><a href="#schedule">Расписание</a></li>
-                    <li><a href="#pricelist">Цены</a></li>
-                    <li><a href="#contacts">Контакты</a></li>
-                </ul>
-            </nav>
-            <button id="hamburger" class="header__hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <?php if (isset($_SESSION['user'])): ?>
-                <div class="header__user">
-                    <a class="header__user_link" href="account.php">Привет,
-                        <?= htmlspecialchars($_SESSION['user']['username']) ?>!</a>
-                    <a href="php/logout.php" class="header__logout">Выйти</a>
+    <header>
+        <div class="container">
+            <div class="header">
+                <div class="header__logo">
+                    <img src="img/logo.png" alt="logo" />
                 </div>
-            <?php else: ?>
-                <button id="modal-button">Вход/Регистрация</button>
-            <?php endif; ?>
-        </div>
-    </div>
-    <?php if (!isset($_SESSION['user'])): ?>
-        <div id="modal" class="modal">
-            <div class="modal__content">
-                <span id="close-modal" class="modal__close">&times;</span>
-                <div class="modal__tabs">
-                    <button id="login-tab" class="modal__tab active">Вход</button>
-                    <button id="register-tab" class="modal__tab">Регистрация</button>
-                </div>
-                <div id="login-form" class="modal__form active">
-                    <h2>Вход</h2>
-                    <form action="php/login.php" method="POST">
-                        <input class="modal__input" type="text" name="username" placeholder="Логин" required />
-                        <input class="modal__input" type="password" name="password" placeholder="Пароль" required />
-                        <button type="submit" class="modal__button">Войти</button>
-                    </form>
-                </div>
-                <div id="register-form" class="modal__form">
-                    <h2>Регистрация</h2>
-                    <form action="php/register.php" method="POST">
-                        <input class="modal__input" type="text" name="username" placeholder="Логин" required />
-                        <input class="modal__input" type="email" name="email" placeholder="Email" required />
-                        <input class="modal__input" type="password" name="password" placeholder="Пароль" required />
-                        <button type="submit" class="modal__button">Зарегистрироваться</button>
-                    </form>
-                </div>
+                <nav id="nav" class="header__nav">
+                    <ul>
+                        <li><a href="#about">О школе</a></li>
+                        <li><a href="#coaches">Тренеры</a></li>
+                        <li><a href="#schedule">Расписание</a></li>
+                        <li><a href="#pricelist">Цены</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                    </ul>
+                </nav>
+                <button id="hamburger" class="header__hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <?php if (isset($_SESSION['user'])): ?>
+                    <div class="header__user">
+                        <a class="header__user_link" href="account.php">Привет,
+                            <?= htmlspecialchars($_SESSION['user']['username']) ?>!</a>
+                        <a href="php/logout.php" class="header__logout">Выйти</a>
+                    </div>
+                <?php else: ?>
+                    <button id="modal-button">Вход/Регистрация</button>
+                <?php endif; ?>
             </div>
         </div>
-    <?php endif; ?>
-</header>
+        <?php if (!isset($_SESSION['user'])): ?>
+            <div id="modal" class="modal">
+                <div class="modal__content">
+                    <span id="close-modal" class="modal__close">&times;</span>
+                    <div class="modal__tabs">
+                        <button id="login-tab" class="modal__tab active">Вход</button>
+                        <button id="register-tab" class="modal__tab">Регистрация</button>
+                    </div>
+                    <div id="login-form" class="modal__form active">
+                        <h2>Вход</h2>
+                        <form action="php/login.php" method="POST">
+                            <input class="modal__input" type="text" name="username" placeholder="Логин" required />
+                            <input class="modal__input" type="password" name="password" placeholder="Пароль" required />
+                            <button type="submit" class="modal__button">Войти</button>
+                        </form>
+                    </div>
+                    <div id="register-form" class="modal__form">
+                        <h2>Регистрация</h2>
+                        <form action="php/register.php" method="POST">
+                            <input class="modal__input" type="text" name="username" placeholder="Логин" required />
+                            <input class="modal__input" type="email" name="email" placeholder="Email" required />
+                            <input class="modal__input" type="password" name="password" placeholder="Пароль" required />
+                            <button type="submit" class="modal__button">Зарегистрироваться</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+    </header>
 
 
     <main>
-        <section  class="hero">
+        <section class="hero">
             <div class="hero__content">
                 <h1>
                     Детская академия <br />
@@ -363,6 +364,26 @@ session_start();
                     </div>
                     <button type="submit">Записаться</button>
                 </form>
+            </div>
+        </section>
+
+        <section class="slider-section">
+            <h2>Наша галерея</h2>
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide"><img src="img/slider1.png" alt="Image 1"></div>
+                    <div class="slide"><img src="img/slider2.png" alt="Image 2"></div>
+                    <div class="slide"><img src="img/slider3.png" alt="Image 3"></div>
+                    <div class="slide"><img src="img/slider4.png" alt="Image 4"></div>
+                    <div class="slide"><img src="img/slider5.png" alt="Image 5"></div>
+                    <div class="slide"><img src="img/slider6.png" alt="Image 6"></div>
+                    <div class="slide"><img src="img/slider7.png" alt="Image 7"></div>
+                    <div class="slide"><img src="img/slider8.png" alt="Image 8"></div>
+                    <div class="slide"><img src="img/slider9.png" alt="Image 9"></div>
+
+                </div>
+                <button class="prev" onclick="prevSlide()">&#10094;</button>
+                <button class="next" onclick="nextSlide()">&#10095;</button>
             </div>
         </section>
 

@@ -1649,3 +1649,104 @@ footer {
     width: 100%;
   }
 }
+
+.slider-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.slider-section h2 {
+  font-size: 36px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.slider {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  padding: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.3s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Медиа-запросы для адаптации */
+@media (max-width: 768px) {
+  .slider-section h2 {
+    font-size: 28px;
+  }
+
+  .slider {
+    width: 90%;
+  }
+
+  .prev,
+  .next {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-section h2 {
+    font-size: 24px;
+  }
+
+  .slider {
+    width: 95%;
+  }
+
+  .prev,
+  .next {
+    padding: 8px;
+    font-size: 12px;
+  }
+}
